@@ -1,0 +1,956 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden; 
+   
+}
+
+section .color{
+    position: absolute;
+    filter: blur(100px);
+    border-radius: 50%;
+}
+section .color:nth-child(1){
+    top: 0;
+    right: 20px;
+    width: 200px;
+    height:200px;
+    background:palevioletred;
+}
+section .color:nth-child(2){
+    left: 0;
+    top: 20px;
+    width:200px;
+    height:200px;
+    background:purple
+}
+section .color:nth-child(3){
+    left: 100px;
+    bottom: -20px;
+    width: 200px;
+    height:200px;
+    background:#21bbdd;
+
+}
+section .color:nth-child(4){
+    right: 100px;
+    bottom: -20px;
+    width: 200px;
+    height:200px;
+    background: yellow
+
+}
+section{
+    display:flex;
+    justify-content: center;
+    margin: 20px;
+}
+/* Container styles */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Ensures the loading overlay is above everything else */
+}
+
+/* Loading content styles */
+.loading-content {
+    text-align: center;
+    color: black;
+}
+
+/* Rotating spinner styles */
+.loading-spinner {
+    border: 8px solid rgba(255, 255, 255, 0.2); /* Light border */
+    border-top: 8px solid lightgreen; /* Visible border on top for rotation */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: rotate 1.5s linear infinite;
+    margin: 20px auto;
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Text styles */
+.loading-animation .text {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.loading-animation .text img {
+    width: 100px; /* Adjust the size of the image as needed */
+    vertical-align: middle;
+}
+
+
+
+
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide slides initially */
+}
+
+/* General form styles */
+
+
+/* Heading styles */
+form h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Label styles */
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+/* Input field styles */
+input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    /* border-radius: 4px; */
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #333;
+    transition: border-color 0.3s ease-in-out;
+}
+.range-labels #label-1{
+    margin-left: 30px;
+}
+.range-labels #label-2{
+    margin-left: 48px;
+}
+
+.range-labels #label-3{
+    margin-left: 50px;
+}
+
+
+.slide {
+    display: none; 
+    padding: 40px;
+    text-align: center;
+}
+
+.slide.active {
+    display: block;
+}
+
+.icon {
+    width: 100px;
+    height: auto;
+}
+
+.para {
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* range slider */
+.field {
+    margin-bottom: 20px;
+}
+
+.fail {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#customRange {
+    width: 80%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .15s ease-in-out;
+}
+
+#customRange:hover {
+    opacity: 1;
+}
+
+#customRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #2196F3;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#customRange::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #2196F3;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.range-label {
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.range-label .emoji {
+    display: block;
+    font-size: 24px;
+}
+
+.range-label.active span {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+
+
+
+/* Style for the field container */
+
+/* Basic Slide Style */
+/* .slide {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+.fail{
+    font-size: 20px;
+
+}
+.slide h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+/* slide 3 */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    user-select: none;
+    position: relative;
+    margin-left: 270px;
+}
+
+.custom-checkbox input[type="radio"] {
+    display: none; /* Hide the default radio button */
+}
+
+.custom-checkbox .checkmark{
+    width: 24px; /* Adjust size if needed */
+    height: 24px; /* Adjust size if needed */
+    background-color: #f1f1f1;
+    border: 2px solid #ccc;
+    margin-right: 10px; /* Space between checkbox and label text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Make it circular */
+}
+
+.custom-checkbox input[type="radio"]:checked + .checkmark {
+    background-color: #2196F3; /* Change color when checked */
+    border-color: #2196F3;
+}
+
+.custom-checkbox input[type="radio"]:checked + .checkmark i {
+    display: block; /* Show the tick icon when checked */
+}
+
+.custom-checkbox .checkmark i {
+    display: none; /* Hide the tick icon by default */
+    color: white;
+    font-size: 14px; /* Adjust tick icon size if needed */
+}
+
+.custom-checkbox span {
+    font-size: 16px; /* Adjust text size if needed */
+    display: flex;
+    align-items: center; /* Align text vertically with the checkmark */
+}
+
+
+
+
+
+button{
+    
+        background-color: orange;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+
+}
+
+button:hover {
+    /* background: linear-gradient(90deg, #0072ff, #00c6ff); */
+        background-color: #e80;
+    
+} 
+
+/* Popup Container Style */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 200px;
+    left: 450px;
+    width: 100%;
+    height: 100%;
+    /* margin-left: 100px; */
+    /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Popup Content Style */
+.popup-content {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    margin-left: 120px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+justify-items: center;
+    justify-content: center;
+}
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* slide 2 */
+.field {
+    /* display: fle */
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.fail {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#customRange {
+    width: 93%;
+    margin: 20px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+#customRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#customRange::-webkit-slider-thumb:hover {
+    background-color: #45a049;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    /* width: 80%; */
+}
+
+.range-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.range-label.active {
+    font-weight: bold;
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.range-label:not(.active) {
+    opacity: 0.6;
+}
+
+
+/* range slider */
+/* /* .fun-o-meter {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#engagement-slider {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.emoji-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.emoji-labels span {
+    font-size: 1.5rem;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.emoji-labels span.active {
+    transform: scale(1.5);
+    transition: transform 0.3s;
+} */
+ 
+
+
+
+.relatability-rating {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#relatability-slide {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.emoji-label {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.emoji-labels span {
+    font-size: 1.5rem;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.emoji-label span.active {
+    transform: scale(1.5);
+    transition: transform 0.3s;
+}
+
+/* slide4 */
+.field {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.fail {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.class {
+    /* display: flex; */
+    flex-direction: column;
+    gap: 15px; /* Space between dropdowns */
+}
+
+select {
+    width: 200px; /* Adjust width as needed */
+    padding: 8px;
+    font-size: 16px; /* Adjust font size as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+select:focus {
+    border-color: #2196F3; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+label {
+    /* display: flex; */
+    align-items: center;
+    font-size: 16px; /* Adjust font size as needed */
+    margin-bottom: 5px; /* Space between label and dropdown */
+}
+
+/* slide7 */
+#fun-slider {
+    width: 73%;
+    margin: 20px 0;
+}
+
+.emoji-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.emoji-labels span {
+    /* font-size: 1.5em; */
+}
+
+
+/* slide8 */
+/* Style the slider *//* Style the slider */
+#relatability-slider {
+    -webkit-appearance: none; /* Remove default appearance */
+    width: 70%; /* Full width */
+    height: 8px; /* Slider height */
+    background: #ddd; /* Slider background */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    opacity: 0.7; /* Slightly transparent */
+    transition: opacity .2s; /* Smooth transition on hover */
+    margin-top: 10px; /* Space above the slider */
+}
+
+#relatability-slider:hover {
+    opacity: 1; /* Fully opaque on hover */
+}
+
+/* Style the slider thumb */
+#relatability-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    appearance: none;
+    width: 20px; /* Thumb width */
+    height: 20px; /* Thumb height */
+    border-radius: 50%; /* Round thumb */
+    background: #4CAF50; /* Thumb color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+#relatability-slider::-moz-range-thumb {
+    width: 20px; /* Thumb width */
+    height: 20px; /* Thumb height */
+    border-radius: 50%; /* Round thumb */
+    background: #4CAF50; /* Thumb color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Style the emoji labels */
+.emoji-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Space between slider and labels */
+}
+
+.emoji-labels span {
+    font-size: 30px; 
+    display: inline-block;
+    width: 100%; /* Equal space for each label */
+    text-align: center; /* Center align text */
+    transition: transform 0.3s, color 0.3s, font-size 0.3s; /* Smooth transitions */
+}
+
+/* Style for the active emoji label */
+.emoji-labels span.active {
+    font-size: 28px; /* Larger size for the active emoji */
+    color: #4CAF50; /* Highlight color */
+    transform: scale(1.2); /* Slightly scale up the active emoji */
+}
+.emoji-scale {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.emoji-scale span {
+    flex: 1;
+    text-align: center;
+}
+
+.emoji-labels {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 2em;
+}
+
+
+/* Style the slider container */
+/* Style the slider container to position labels */
+/* .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+} */
+
+/* Container for the slider */
+/* .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+/* Slide9 */
+/* Container for the slide */
+#slide9 {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Slider styling */
+.slidering {
+    -webkit-appearance: none; /* Hides the default slider appearance */
+    width: 60%; /* Adjust width as needed */
+    height: 10px; /* Height of the slider track */
+    border-radius: 5px; /* Rounded corners */
+    background: #ddd; /* Gradient color */
+    outline: none; /* Remove outline */
+    opacity: 0.9; /* Transparency */
+    transition: opacity 0.2s; /* Smooth transition for hover effect */
+}
+
+.slider:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Slider thumb styling */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Hides the default thumb appearance */
+    appearance: none;
+    width: 25px; /* Width of the thumb */
+    height: 25px; /* Height of the thumb */
+    border-radius: 50%; /* Rounded thumb */
+    background: #4CAF50; /* Color of the thumb */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.2s; /* Smooth transition for hover effect */
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #45a049; /* Darker green on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+    background: #45a049;
+}
+
+/* Emoji labels and value styling */
+.emoji-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+#learning-impact-value {
+    /* font-weight: bold; */
+    color: #333; /* Text color */
+    font-size: 15px;
+}
+
+
+/* slide10 */
+
+.rating {
+    margin-bottom: 20px;
+}
+
+.stars, .emoji-slider {
+    /* display: flex; */
+    align-items: center;
+}
+
+.stars .fa-star {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.stars .fa-star.checked {
+    color: gold;
+}
+
+.fun-o-meter {
+    margin: 20px 0;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+}
+
+.sliders {
+    width: 100%;
+}
+
+.emoji-labeler {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5px;
+}
+
+.emoji-label {
+    font-size: 24px;
+}
+.highlighted {
+    font-size: 32px; /* Increase the size for the selected emoji */
+    color: #f39c12;  /* Change color to highlight */
+    transition: all 0.2s ease-in-out;
+}
+
+/* slide11 */
+.quality-rating {
+    display: flex;
+    align-items: center;
+}
+
+#quality {
+    margin: 20px 20px;
+    width: 50%;
+}
+
+#quality-emoji {
+    font-size: 35px;
+    display: block;
+}
+
+/* slide12 */
+/* slide12 */
+/* label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+} */
+
+#concerns {
+    width: 100%;
+    max-width: 600px; /* Optional max-width */
+    height: 100px;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* Allows user to resize vertically */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#concerns:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+/* slide13 */
+#textarea{
+    max-width: 600px; /* Optional max-width */
+    height: 100px;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* Allows user to resize vertically */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+#textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+
+/* slide13 */
+/* Slide 13 Styles */
+.slide {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.slide h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 50%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+input[type="text"], input[type="email"] {
+    width: calc(50% - 20px);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+}
+/* toast message */
+/* Toast Message Styles */
+/* Add this to your style.css */
+
+.color:nth-child(1) {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+    padding: 16px;
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+
+.toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
