@@ -516,51 +516,33 @@ function updateQualityEmoji(value) {
 
 
 // slide13//
-// script.js
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to show the toast message
-    function showToast() {
-        var toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(function() {
-            toast.classList.remove('show');
-        }, 3000); // Adjust the time according to how long you want the toast to be visible
-    }
-
-    // Function to handle form submission
-    function handleFormSubmit(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Show the toast message
-        showToast();
-
-        // Delay form submission to allow toast to be seen
-        setTimeout(function() {
-            // Here you could add code to actually submit the form or trigger a submission
-            // For example, if you are using AJAX:
-            // var form = event.target;
-            // var formData = new FormData(form);
-            // fetch(form.action, {
-            //     method: form.method,
-            //     body: formData
-            // }).then(response => response.text())
-            // .then(result => {
-            //     console.log(result);
-            //     // Handle the result if needed
-            // });
-
-            // For a regular form submission, you can just trigger the form's submit method:
-            event.target.submit();
-        }, 3000); // Ensure this matches the duration of the toast
-    }
-
-    // Attach the submit event to the form
-    var form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', handleFormSubmit);
+// Function to show and hide the contact details
+document.getElementById('contact-consent').addEventListener('change', function() {
+    const contactDetails = document.getElementById('contact-details');
+    if (this.checked) {
+        contactDetails.style.display = 'block';
+    } else {
+        contactDetails.style.display = 'none';
     }
 });
+
+// Function to show the toast message on form submission
+document.querySelector('.btns[type="submit"]').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent form from submitting for demo purpose
+    const toast = document.getElementById('toast');
+    toast.className = 'toast show';
+
+    // Hide the toast after 3 seconds
+    setTimeout(function() {
+        toast.className = toast.className.replace('show', '');
+    }, 3000);
+});
+
+// Navigation button functionality (prev button for example)
+document.querySelector('.btns[type="prev"]').addEventListener('click', function() {
+    // logic for navigating to the previous slide
+});
+
 
 
 
