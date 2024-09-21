@@ -405,22 +405,42 @@ var stateObject = {
     }
 
 // slide7//
-document.addEventListener('DOMContentLoaded', function() {
-    const funSlider = document.getElementById('fun-slider');
-    const emojiLabels = document.querySelectorAll('.emoji-labels span');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const funSlider = document.getElementById('fun-slider');
+//     const emojiLabels = document.querySelectorAll('.emoji-labels span');
 
-    funSlider.addEventListener('input', function() {
-        const value = parseInt(funSlider.value);
-        emojiLabels.forEach((emoji, index) => {
-            if (index + 1 === value) {
-                emoji.style.fontSize = '2em'; // Highlight selected emoji
-            } else {
-                emoji.style.fontSize = '1.5em'; // Default size
-            }
-        });
-    });
-});
+//     funSlider.addEventListener('input', function() {
+//         const value = parseInt(funSlider.value);
+//         emojiLabels.forEach((emoji, index) => {
+//             if (index + 1 === value) {
+//                 emoji.style.fontSize = '2em'; 
+//             } else {
+//                 emoji.style.fontSize = '1.5em'; 
+//             }
+//         });
+//     });
+// });
+function updateEmojiValue() {
+    var slider = document.getElementById("fun-slider");
+    var emojiDisplay = document.getElementById("emoji-display");
+    var emojiText = document.getElementById("emoji-text");
 
+    // Define emojis and text labels based on slider values
+    var emojiMap = {
+        1: { emoji: "😐", text: "Dull" },
+        2: { emoji: "😕", text: "Slightly Enjoy" },
+        3: { emoji: "😊", text: "Enjoyed" },
+        4: { emoji: "😄", text: "Very Enjoy" },
+        5: { emoji: "🎉", text: "Blasted" }
+    };
+
+    // Update the emoji and text based on the current slider value
+    emojiDisplay.textContent = emojiMap[slider.value].emoji;
+    emojiText.textContent = emojiMap[slider.value].text;
+}
+
+// Initialize the default value
+updateEmojiValue();
 
 // slide8//
 // document.addEventListener('DOMContentLoaded', function() {
@@ -438,10 +458,26 @@ document.addEventListener('DOMContentLoaded', function() {
 //         });
 //     });
 // });
-function updateRelatabilityLabel(value) {
-    const emojiLabels = ['🌧️', '🌥️', '⛅', '🌤️', '☀️'];
-    document.getElementById('relatability-label').textContent = emojiLabels[value - 1];
+function updatethunderValue() {
+    var slider = document.getElementById("relatability-slider");
+    var emojiDisplay = document.getElementById("relatability-label");
+    var emojiText = document.getElementById("text-emojis");
+
+    // Define emojis and text labels based on slider values
+    var emojiMap = {
+        1: { emoji: "🌧️", text: "Not Relatable" },
+        2: { emoji: "🌥️", text: "Somewhat Relatable" },
+        3: { emoji: "⛅", text: "Moderately Relatable" },
+        4: { emoji: "🌤️", text: "Relatable" },
+        5: { emoji: "☀️ ", text: "Highly Relatable" }
+    };
+
+    // Update the emoji and text based on the current slider value
+    emojiDisplay.textContent = emojiMap[slider.value].emoji;
+    emojiText.textContent = emojiMap[slider.value].text;
 }
+
+updatethunderValue()
 
 
 // slide9//
@@ -458,7 +494,6 @@ document.getElementById('learning-impact').addEventListener('input', function() 
         impactText.textContent = "Very Useful Knowledge";
     }
 });
-
 
 
 
@@ -484,36 +519,74 @@ function highlightStars(rating) {
 }
     
     
-function updateFunMeter(value) {
-    // Update the hidden input value
-    document.getElementById('selected-fun-level').value = value;
+// function updateFunMeter(value) {
+ 
+//     document.getElementById('selected-fun-level').value = value;
 
-    // Get all emoji labels
-    const emojis = document.querySelectorAll('.emoji-labeler .emoji-label');
+   
+//     const emojis = document.querySelectorAll('.emoji-labeler .emoji-label');
     
-    // Loop through each emoji label
-    emojis.forEach((emoji, index) => {
-        // Highlight the emoji that matches the current slider value
-        if (index + 1 == value) {
-            emoji.classList.add('highlighted');
-        } else {
-            emoji.classList.remove('highlighted');
-        }
-    });
+    
+//     emojis.forEach((emoji, index) => {
+       
+//         if (index + 1 == value) {
+//             emoji.classList.add('highlighted');
+//         } else {
+//             emoji.classList.remove('highlighted');
+//         }
+//     });
+// }
+const emojiMeanings = {
+    1: "Very Boring",
+    2: "Not Engaging",
+    3: "Somewhat Engaging",
+    4: "Very Engaging",
+    5: "Extremely Fun"
+};
+
+function updateFunMeter(value) {
+    showEmojiMeaning(value);
 }
 
+function showEmojiMeaning(value) {
+    const meaningDiv = document.getElementById('emoji-meaning');
+    const allEmojis = document.querySelectorAll('.emoji-label');
+
+    // Remove active class from all emojis
+    allEmojis.forEach(emoji => emoji.classList.remove('active'));
+
+    // Add active class to the clicked emoji
+    const activeEmoji = document.querySelector(`.emoji-label[data-value="${value}"]`);
+    activeEmoji.classList.add('active');
+
+    // Update and animate the meaning
+    meaningDiv.textContent = emojiMeanings[value]; // Display emoji meaning
+    meaningDiv.setAttribute("data-value", value);  // Apply styling for each value
+
+    // Show the meaning with animation
+    meaningDiv.classList.add('show');
+}
 // slide11//
-function updateQualityEmoji(value) {
-    const emojiMap = {
-        1: '😟', // Poor
-        2: '😕', // Fair
-        3: '😐', // Average
-        4: '🙂', // Good
-        5: '😃'  // Excellent
+function updateQualityEmoji() {
+    var slider = document.getElementById("quality");
+    var emojiDisplay = document.getElementById("label_called");
+    var emojiText = document.getElementById("texting");
+
+    // Define emojis and text labels based on slider values
+    var emojiMap = {
+        1: { emoji: "😟", text: "Poor" },
+        2: { emoji: "😕", text: "Fair" },  
+        3: { emoji: "😐 ", text: "Neutral" },
+        4: { emoji: "😃", text: "Good" },
+        5: { emoji: "🌟 ", text: "Excellent" }
     };
-    document.getElementById('quality-emoji').textContent = emojiMap[value];
+
+    // Update the emoji and text based on the current slider value
+    emojiDisplay.textContent = emojiMap[slider.value].emoji;
+    emojiText.textContent = emojiMap[slider.value].text;
 }
 
+updateQualityEmoji()
 
 // slide13//
 // Function to show and hide the contact details
