@@ -16,7 +16,7 @@ html {
 #scroll{
   /* background-color: #333; */
   overflow-y: scroll;
-  max-height: 700px;
+  max-height: 600px;
 
 }
 
@@ -109,10 +109,13 @@ html {
 }
 
 .fail {
-  font-weight: bold;
-  margin-bottom: auto;
-  display: block;
-  margin-top: 10px;
+   font-weight: bold;
+   display: block;
+   margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  
 }
 
 #customRange {
@@ -180,9 +183,7 @@ html {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 } */
-.fail {
-  font-size: 20px;
-}
+
 /* .slide h2 {
   font-size: 40px;
   margin-bottom: 20px;
@@ -317,11 +318,7 @@ button:hover {
   margin: 20px;
 }
 
-.fail {
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
+
 
 #customRange {
   width: 93%;
@@ -415,10 +412,7 @@ button:hover {
   padding: 20px;
 }
 
-.fail {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+
 
 .class {
   /* display: flex; */
@@ -431,7 +425,7 @@ button:hover {
 select {
   width: 300px; /* Adjust width as needed */
   padding: 10px;
-  font-size: 20px; /* Adjust font size as needed */
+  font-size: 15px; /* Adjust font size as needed */
   border: 1px solid #ccc;
   border-radius: 4px; /* Rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -851,7 +845,7 @@ label {
 }
 
 .slide h2 {
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 #slide6{
@@ -890,6 +884,7 @@ input[type="tel"] {
 #contact-consent{
   width: 25px;
   height: 20px;
+  margin-top: 20px;
 }
 .navigation-buttons {
   text-align: right;
@@ -984,6 +979,30 @@ button.btns:hover {
 }
 
 
+/* question1 */
+.emoji-labels {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.emoji-display {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.emoji-label {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.emoji-label:hover {
+  transform: scale(1.2);
+}
+
 
 
 @media (max-width: 480px) {
@@ -1038,8 +1057,11 @@ button.btns:hover {
   }
   .slide {
     display: none;
-    padding: 10px;
     text-align: center;
+    /* padding: 15px; */
+    overflow:hidden;
+    margin-bottom: 0;
+    margin-top: 50px;
   }
 
   .icon {
@@ -1145,7 +1167,7 @@ button.btns:hover {
     user-select: none;
     position: relative;
     margin-right: -270px;
-    margin-left: 50px;
+    margin-left: 70px;
   }
   
   .custom-checkbox input[type="radio"] {
@@ -1225,10 +1247,7 @@ button.btns:hover {
     font-size: 24px;
     color: #ddddddde;
   }
-  .slide {
-    margin-bottom: 0;
-    margin-top: 50px;
-  }
+  
   #quality {
     margin: 0;
     width: 100%;
@@ -1240,6 +1259,12 @@ button.btns:hover {
     width: 100%;
     padding: 5px;
     
+}
+#texting{
+  font-size: 15px;
+}
+#label_called{
+  font-size: 20px;
 }
 .form-group {
     margin-top: 0;
@@ -1255,6 +1280,11 @@ button.btns:hover {
 }
 #emoji-text{
   font-size: 15px;
+}
+#contact-consent{
+  width: 25px;
+  height: 20px;
+  margin-top: 10px;
 }
 
 }

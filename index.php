@@ -35,9 +35,9 @@
         <!-- Slide 1 -->
         <div class="slide" id="slide1">
             <img src="Evvi_new.png" alt="evvi-icon" class="icon">
-            <p class="para">Thank you for participating in our training session!<br>
-                Your feedback helps us improve and provide you <br> with an even better experience.<br>
-                Please take a <br> moment to share your thoughts.</p>
+            <p class="para">Thank you for participating in our training session!
+                Your feedback helps us improve and provide youwith an even better experience.
+                Please take a moment to share your thoughts.</p>
             <button class="btns">START</button>
         </div>
 
@@ -56,7 +56,7 @@
                         <div class="field">
                             <div class="fail">Age Group:</div>
                             <input type="range" id="customRange" min="0" max="4" step="1" value="0"
-                                oninput="updateValue(this.value)">
+                                oninput="updateValue(this.value)" name="fun-meter">
                             <div class="range-labels">
                                 <div id="label-0" class="range-label active"><span class="emoji"
                                         id="emoji-0">👶</span><span>Under
@@ -144,14 +144,22 @@
         <!-- Slide 7 -->
         <div class="slide" id="slide7">
 
-            <h2 class="head">1. Was the session lively and engaging to you?</h2>
-            <input type="range" id="fun-slider" min="1" max="5" value="3" step="1" oninput="updateEmojiValue()"
-                style="--value:3">
+        <h2 class="head">1. Was the session lively and engaging to you?</h2>
 
-            <div class="emoji-labels">
-                <span id="emoji-display">😊</span>
-                <span id="emoji-text">Enjoyed</span>
-            </div>
+<div class="emoji-labels">
+    <span class="emoji-label" data-value="1" onclick="showEmojiMeaning(1)">😴</span>
+    <span class="emoji-label" data-value="2" onclick="showEmojiMeaning(2)">😑</span>
+    <span class="emoji-label" data-value="3" onclick="showEmojiMeaning(3)">🙂</span>
+    <span class="emoji-label" data-value="4" onclick="showEmojiMeaning(4)">😃</span>
+    <span class="emoji-label" data-value="5" onclick="showEmojiMeaning(5)">🎉</span>
+</div>
+
+<!-- The area where the meaning will be displayed -->
+<div class="emoji-display">
+    <span id="emoji-text">Click an emoji to see its meaning</span>
+</div>
+
+
             <div class="navigation-buttons">
                 <button class="btns">PREV</button>
                 <button class="btns">NEXT</button>
@@ -161,7 +169,7 @@
         <!-- Slide 8 -->
         <div class="slide" id="slide8">
             <h2 class="head">2. Was the information shared in the session clear and relatable to you?</h2>
-            <input type="range" id="relatability-slider" min="1" max="5" value="3" step="1"
+            <input type="range" id="relatability-slider" name="relatability-slider" min="1" max="5" value="3" step="1"
                 oninput="updatethunderValue()" style="--value:3">
             <div class="emoji-labels">
                 <span id="relatability-label">🌧️</span>
@@ -197,7 +205,7 @@
             </h2>
             <div class="rating">
                 <label for="trainer-delivery">Trainer’s Delivery:</label>
-                <div id="trainer-delivery" class="stars">
+                <div id="trainer-delivery" class="stars" name="star-rating">
                     <span class="fa fa-star" data-value="1"></span>
                     <span class="fa fa-star" data-value="2"></span>
                     <span class="fa fa-star" data-value="3"></span>
@@ -208,7 +216,7 @@
             <div class="fun-o-meter">
                 <label for="fun-slider">Engagement Level:</label>
                 <div class="slider-container">
-                    <input type="range" id="fun-slider" name="fun-slider" min="1" max="5" value="3" step="1"
+                    <input type="range" id="fun-slider" name="emoji-rating" min="1" max="5" value="3" step="1"
                         class="sliders" oninput="updateFunMeter(this.value)">
                     <div class="emoji-labeler">
                         <span class="emoji-label" data-value="1" onclick="showEmojiMeaning(1)">😴</span>

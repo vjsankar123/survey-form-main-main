@@ -420,27 +420,58 @@ var stateObject = {
 //         });
 //     });
 // });
-function updateEmojiValue() {
-    var slider = document.getElementById("fun-slider");
-    var emojiDisplay = document.getElementById("emoji-display");
-    var emojiText = document.getElementById("emoji-text");
+// function updateEmojiValue() {
+//     var slider = document.getElementById("fun-slider");
+//     var emojiDisplay = document.getElementById("emoji-display");
+//     var emojiText = document.getElementById("emoji-text");
 
-    // Define emojis and text labels based on slider values
-    var emojiMap = {
-        1: { emoji: "😐", text: "Dull" },
-        2: { emoji: "😕", text: "Slightly Enjoy" },
-        3: { emoji: "😊", text: "Enjoyed" },
-        4: { emoji: "😄", text: "Very Enjoy" },
-        5: { emoji: "🎉", text: "Blasted" }
-    };
+//     // Define emojis and text labels based on slider values
+//     var emojiMap = {
+//         1: { emoji: "😐", text: "Dull" },
+//         2: { emoji: "😕", text: "Slightly Enjoy" },
+//         3: { emoji: "😊", text: "Enjoyed" },
+//         4: { emoji: "😄", text: "Very Enjoy" },
+//         5: { emoji: "🎉", text: "Blasted" }
+//     };
 
-    // Update the emoji and text based on the current slider value
-    emojiDisplay.textContent = emojiMap[slider.value].emoji;
-    emojiText.textContent = emojiMap[slider.value].text;
+    
+//     emojiDisplay.textContent = emojiMap[slider.value].emoji;
+//     emojiText.textContent = emojiMap[slider.value].text;
+// }
+
+
+// updateEmojiValue();
+   // Function to show the meaning of the selected emoji
+   function showEmojiMeaning(value) {
+    let emojiText = document.getElementById("emoji-text");
+    let meaning = "";
+
+    // Map the emoji values to their meanings
+    switch (value) {
+        case 1:
+            meaning = "Sleepy / Boring";
+            break;
+        case 2:
+            meaning = "Not Engaging";
+            break;
+        case 3:
+            meaning = "Neutral";
+            break;
+        case 4:
+            meaning = "Engaging";
+            break;
+        case 5:
+            meaning = "Super Fun!";
+            break;
+        default:
+            meaning = "Click an emoji to see its meaning";
+    }
+
+    // Update the emoji-text with the meaning
+    emojiText.textContent = meaning;
 }
 
-// Initialize the default value
-updateEmojiValue();
+
 
 // slide8//
 // document.addEventListener('DOMContentLoaded', function() {
