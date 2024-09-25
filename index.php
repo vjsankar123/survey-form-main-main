@@ -144,22 +144,33 @@
         <!-- Slide 7 -->
         <div class="slide" id="slide7">
 
-        <h2 class="head">1. Was the session lively and engaging to you?</h2>
+            <h2 class="head">1. Was the session lively and engaging to you?</h2>
 
-<div class="emoji-labels">
-    <span class="emoji-label" data-value="1" onclick="showEmojiMeaning(1)">😴</span>
-    <span class="emoji-label" data-value="2" onclick="showEmojiMeaning(2)">😑</span>
-    <span class="emoji-label" data-value="3" onclick="showEmojiMeaning(3)">🙂</span>
-    <span class="emoji-label" data-value="4" onclick="showEmojiMeaning(4)">😃</span>
-    <span class="emoji-label" data-value="5" onclick="showEmojiMeaning(5)">🎉</span>
-</div>
+            <div class="emoji-labels">
+                <div class="emoji-wrapper">
+                    <span class="emoji-label" data-value="1" onclick="updateSlider(1)">😴</span>
+                    <div class="emoji-value" id="emoji-value-1">Not Lively</div>
+                </div>
+                <div class="emoji-wrapper">
+                    <span class="emoji-label" data-value="2" onclick="updateSlider(2)">😑</span>
+                    <div class="emoji-value" id="emoji-value-2">Bit Dull</div>
+                </div>
+                <div class="emoji-wrapper">
+                    <span class="emoji-label" data-value="3" onclick="updateSlider(3)">🙂</span>
+                    <div class="emoji-value" id="emoji-value-3">Somewhat Engaging</div>
+                </div>
+                <div class="emoji-wrapper">
+                    <span class="emoji-label" data-value="4" onclick="updateSlider(4)">😃</span>
+                    <div class="emoji-value" id="emoji-value-4">Very Engaging</div>
+                </div>
+                <div class="emoji-wrapper">
+                    <span class="emoji-label" data-value="5" onclick="updateSlider(5)">🎉</span>
+                    <div class="emoji-value" id="emoji-value-5">Highly Engaging </div>
+                </div>
+            </div>
 
-<!-- The area where the meaning will be displayed -->
-<div class="emoji-display">
-    <span id="emoji-text">Click an emoji to see its meaning</span>
-</div>
-
-
+            <!-- Hidden input to store linear scale value -->
+            <input type="hidden" id="fun-meter-value" name="fun-meter-value" value="">
             <div class="navigation-buttons">
                 <button class="btns">PREV</button>
                 <button class="btns">NEXT</button>
@@ -169,12 +180,31 @@
         <!-- Slide 8 -->
         <div class="slide" id="slide8">
             <h2 class="head">2. Was the information shared in the session clear and relatable to you?</h2>
-            <input type="range" id="relatability-slider" name="relatability-slider" min="1" max="5" value="3" step="1"
-                oninput="updatethunderValue()" style="--value:3">
+
             <div class="emoji-labels">
-                <span id="relatability-label">🌧️</span>
-                <span id="text-emojis">Not Relatable</span>
+                <div class="emoji-label">
+                    <span class="relatability-label" data-value="1" onclick="updateRelatabilitySlider(1)">🌧️</span>
+                    <div class="text-emojis" id="value-1">Not Relatable</div>
+                </div>
+                <div class="emoji-label">
+                    <span class="relatability-label" data-value="2" onclick="updateRelatabilitySlider(2)">🌥️</span>
+                    <div class="text-emojis" id="value-2">Somewhat Relatable</div>
+                </div>
+                <div class="emoji-label">
+                    <span class="relatability-label" data-value="3" onclick="updateRelatabilitySlider(3)">⛅</span>
+                    <div class="text-emojis" id="value-3">Neutral</div>
+                </div>
+                <div class="emoji-label">
+                    <span class="relatability-label" data-value="4" onclick="updateRelatabilitySlider(4)">🌤️</span>
+                    <div class="text-emojis" id="value-4">Relatable</div>
+                </div>
+                <div class="emoji-label">
+                    <span class="relatability-label" data-value="5" onclick="updateRelatabilitySlider(5)">☀️</span>
+                    <div class="text-emojis" id="value-5">Highly Relatable</div>
+                </div>
             </div>
+
+            <input type="hidden" id="meter-value" name="meter-value" value="">
 
 
             <div class="navigation-buttons">
